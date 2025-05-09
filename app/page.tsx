@@ -10,7 +10,7 @@ export default function Home() {
       <header className="px-4 lg:px-6 h-16 flex items-center border-b border-slate-800">
         <Link className="flex items-center justify-center" href="/">
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pigeonlogo-9b7cRs8uhFqGWcksjdTj2LmswqQDjD.png"
+            src="/pigeonlogo.png"
             alt="Wing2Wing Protocol Logo"
             width={40}
             height={40}
@@ -84,13 +84,31 @@ export default function Home() {
                       className="w-3/4 h-3/4 object-contain animate-float"
                       height={300}
                       width={300}
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pigeonlogo-9b7cRs8uhFqGWcksjdTj2LmswqQDjD.png"
+                      src="/pigeonlogo.png"
                       style={{
                         animation: "float 6s ease-in-out infinite",
                       }}
                     />
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="w-full py-12 md:py-24 bg-slate-950 relative">
+          <div className="container px-4 md:px-6">
+            <div className="max-w-4xl mx-auto">
+              <div className="rounded-2xl overflow-hidden border-2 border-slate-800 shadow-xl shadow-sky-900/10 bg-slate-900">
+                <video 
+                  className="w-full h-full object-cover"
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                >
+                  <source src="/demo.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
           </div>
@@ -306,7 +324,7 @@ export default function Home() {
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-slate-800">
         <p className="text-xs text-slate-500">
-          © {new Date().getFullYear()} Wing2Wing Protocol. All rights reserved. No pigeons were harmed in the making of
+          {new Date().getFullYear()} Wing2Wing Protocol. All rights reserved. No pigeons were harmed in the making of
           this website.
         </p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
