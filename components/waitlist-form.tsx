@@ -6,6 +6,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ArrowRight, CheckCircle, Loader2 } from "lucide-react"
+import { supabase } from "@/lib/supabase"
 
 export default function WaitlistForm() {
   const [email, setEmail] = useState("")
@@ -18,13 +19,43 @@ export default function WaitlistForm() {
     setIsSubmitting(true)
     setError("")
 
-    // Simulate API call
+    // Simple email validation
+    if (!email.includes("@") || !email.includes(".")) {
+      setError("Please enter a valid email address")
+      setIsSubmitting(false)
+      return
+    }
+
     try {
-      // In a real app, you would send this to your API
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      const { error } = await supabase.from("wing2wing").insert([{ email }])
+
+      if (error) {
+        if (error.code === "23505") {
+          setError("You're already on the waitlist!")
+        } else {
+          setError("Something went wrong. Please try again.")
+        }
+        return
+      }
+
+
+      // Send welcome email (you'll implement this API route)
+      const emailResponse = await fetch('/api/send-welcome-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email })
+      })
+
+      if (!emailResponse.ok) {
+        throw new Error('Failed to send welcome email')
+      }
+
       setIsSubmitted(true)
     } catch (err) {
-      setError("Something went wrong. Please try again.")
+      console.error(err)
+      setError("Unexpected error. Please try again.")
     } finally {
       setIsSubmitting(false)
     }
