@@ -11,7 +11,7 @@ export default function Home() {
       <header className="px-4 lg:px-6 h-16 flex items-center border-b border-slate-800">
         <Link className="flex items-center justify-center" href="/">
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pigeonlogo-9b7cRs8uhFqGWcksjdTj2LmswqQDjD.png"
+            src="/pigeonlogo.png"
             alt="Wing2Wing Protocol Logo"
             width={40}
             height={40}
@@ -95,7 +95,7 @@ export default function Home() {
                     <Image
                       alt="Wing2Wing Protocol Application Demo"
                       className="w-full h-auto object-contain"
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/w2wdemoimg-jbeEjzKqgLomALCzNjpvLWJGndh2G0.png"
+                      src="/w2wdemoimg.png"
                       width={1200}
                       height={800}
                       priority
@@ -121,7 +121,7 @@ export default function Home() {
             </div>
             <div className="max-w-4xl mx-auto">
               <VideoPlayer
-                src="demo.mp4"
+                src="/demo.mp4"
                 title="Wing2Wing Protocol Demo"
                 poster="w2wdemo.png"
               />
@@ -267,7 +267,7 @@ export default function Home() {
                     <Image
                       alt="Wing2Wing Protocol Pigeon Selection"
                       className="w-full h-auto object-contain"
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/w2wdemoimg-jbeEjzKqgLomALCzNjpvLWJGndh2G0.png"
+                      src="/w2wdemoimg.png"
                       width={1200}
                       height={800}
                     />
