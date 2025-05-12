@@ -4,6 +4,7 @@ import Link from "next/link"
 import WaitlistForm from "@/components/waitlist-form"
 import CoreValues from "@/components/core-values"
 import VideoPlayer from "@/components/video-player"
+import AnimatedPigeon from "@/components/animated-pigeon"
 
 export default function Home() {
   return (
@@ -52,13 +53,28 @@ export default function Home() {
                 </div>
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                    Wing2Wing Protocol
-                    <span className="block text-2xl sm:text-3xl text-sky-400 mt-2">Timeless Communication</span>
+                    Messages Delivered With Character
+                    <span className="block text-2xl sm:text-3xl text-sky-400 mt-2"> The world's first pigeon-powered messaging protocol</span>
                   </h1>
+                  <AnimatedPigeon />
                   <p className="text-slate-400 md:text-xl max-w-[600px]">
-                    Embracing the spirit of timeless communication by reinventing connection with playful innovation and
-                    simplicity.
+                    Wing2Wing reimagines digital communication with delightful unpredictability. Choose your pigeon, send
+                    your message, and embrace the journey.
                   </p>
+                  <ul className="space-y-2 mt-2">
+                  <li className="flex items-center gap-2 text-slate-300">
+                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-sky-900/20 text-sky-400">
+                      <CheckCircle className="h-4 w-4" />
+                    </div>
+                    <span>Select from pigeons with unique delivery personalities</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-slate-300">
+                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-sky-900/20 text-sky-400">
+                      <CheckCircle className="h-4 w-4" />
+                    </div>
+                    <span>Experience the charm of unpredictable message delivery</span>
+                  </li>
+                </ul>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row pt-4">
                   <Link
