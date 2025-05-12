@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import WaitlistForm from "@/components/waitlist-form"
 import CoreValues from "@/components/core-values"
+import VideoPlayer from "@/components/video-player"
 
 export default function Home() {
   return (
@@ -40,7 +41,7 @@ export default function Home() {
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 overflow-hidden relative">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(74,128,226,0.1),transparent_60%)]"></div>
           <div className="container px-4 md:px-6 relative">
-            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_500px]">
+            <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:gap-12">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="inline-flex items-center space-x-2 rounded-full bg-slate-800 px-3 py-1 text-sm text-sky-400 mb-4 w-fit">
                   <span className="relative flex h-2 w-2">
@@ -76,18 +77,28 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex items-center justify-center">
-                <div className="relative w-full h-[400px] rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl shadow-sky-900/10">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(74,128,226,0.1),transparent_70%)]"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
+                <div
+                  className="relative w-full lg:w-[140%] lg:translate-x-[15%] rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl shadow-sky-900/10 transform lg:rotate-1 hover:rotate-0 transition-all duration-500 animate-float"
+                  style={{
+                    animation: "float 6s ease-in-out infinite",
+                  }}
+                >
+                  <div className="absolute -top-1 left-0 right-0 h-6 bg-slate-800 flex items-center px-3 rounded-t-lg">
+                    <div className="flex space-x-1.5">
+                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div className="text-xs text-slate-400 mx-auto">Wing2Wing Protocol</div>
+                  </div>
+                  <div className="pt-6">
                     <Image
-                      alt="Wing2Wing Protocol Illustration"
-                      className="w-3/4 h-3/4 object-contain animate-float"
-                      height={300}
-                      width={300}
-                      src="/pigeonlogo.png"
-                      style={{
-                        animation: "float 6s ease-in-out infinite",
-                      }}
+                      alt="Wing2Wing Protocol Application Demo"
+                      className="w-full h-auto object-contain"
+                      src="/w2wdemoimg.png"
+                      width={1200}
+                      height={800}
+                      priority
                     />
                   </div>
                 </div>
@@ -95,24 +106,32 @@ export default function Home() {
             </div>
           </div>
         </section>
+
         <section className="w-full py-12 md:py-24 bg-slate-950 relative">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(74,128,226,0.15),transparent_70%)]"></div>
           <div className="container px-4 md:px-6">
-            <div className="max-w-4xl mx-auto">
-              <div className="rounded-2xl overflow-hidden border-2 border-slate-800 shadow-xl shadow-sky-900/10 bg-slate-900">
-                <video 
-                  className="w-full h-full object-cover"
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline
-                >
-                  <source src="/demo.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+            <div className="max-w-3xl mx-auto text-center mb-12">
+              <div className="inline-block rounded-full bg-slate-800 px-4 py-1.5 text-sm text-sky-400 mb-4">
+                See It In Action
               </div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">Watch Wing2Wing Protocol in Flight</h2>
+              <p className="text-slate-400 md:text-lg mb-8">
+                Experience the charm of our pigeon-powered messaging system in this brief demonstration.
+              </p>
+            </div>
+            <div className="max-w-4xl mx-auto">
+              <VideoPlayer
+                src="/demo.mp4"
+                title="Wing2Wing Protocol Demo"
+                poster="w2wdemo.png"
+              />
+              <p className="text-center text-sm text-slate-500 mt-4">
+                Click anywhere on the video to expand or use the fullscreen button in the corner
+              </p>
             </div>
           </div>
         </section>
+
         <section className="w-full py-12 md:py-24 bg-slate-900 relative">
           <div className="container px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center">
@@ -180,7 +199,7 @@ export default function Home() {
         <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32 relative bg-[#E9C9A3]/10">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(74,128,226,0.1),transparent_70%)]"></div>
           <div className="container px-4 md:px-6 relative">
-            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+            <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:gap-12">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <div className="inline-block rounded-full bg-slate-800 px-4 py-1.5 text-sm text-sky-400">
@@ -230,16 +249,31 @@ export default function Home() {
                 </ul>
               </div>
               <div className="flex items-center justify-center">
-                <div className="relative w-full h-[400px] rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl shadow-sky-900/10">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(74,128,226,0.1),transparent_70%)]"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
+                <div
+                  className="relative w-full lg:w-[130%] rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl shadow-sky-900/10 transform lg:-rotate-1 hover:rotate-0 transition-all duration-500 animate-float-slow"
+                  style={{
+                    animation: "float-slow 8s ease-in-out infinite",
+                  }}
+                >
+                  <div className="absolute -top-1 left-0 right-0 h-6 bg-slate-800 flex items-center px-3 rounded-t-lg">
+                    <div className="flex space-x-1.5">
+                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div className="text-xs text-slate-400 mx-auto">Select Your Pigeon</div>
+                  </div>
+                  <div className="p-4 pt-8">
                     <Image
-                      alt="Wing2Wing Process Illustration"
-                      className="w-3/4 h-3/4 object-contain"
-                      height={300}
-                      width={500}
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pigeonLogoTip-GzQXGOHN1Cz9517qNbW1ptzwGSAWIn.jpeg"
+                      alt="Wing2Wing Protocol Pigeon Selection"
+                      className="w-full h-auto object-contain"
+                      src="/w2wdemoimg.png"
+                      width={1200}
+                      height={800}
                     />
+                    <p className="mt-2 text-sm text-slate-400">
+                      Choose from various pigeons with different speed and reliability characteristics
+                    </p>
                   </div>
                 </div>
               </div>
@@ -324,7 +358,7 @@ export default function Home() {
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-slate-800">
         <p className="text-xs text-slate-500">
-          {new Date().getFullYear()} Wing2Wing Protocol. All rights reserved. No pigeons were harmed in the making of
+          © {new Date().getFullYear()} Wing2Wing Protocol. All rights reserved. No pigeons were harmed in the making of
           this website.
         </p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
