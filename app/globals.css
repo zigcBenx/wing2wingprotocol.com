@@ -110,3 +110,24 @@
   height: 100%;
   object-fit: contain;
 }
+
+@keyframes wing {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.02) rotate(-1deg);
+  }
+  50% {
+    transform: scale(1) rotate(0deg);
+  }
+  75% {
+    transform: scale(1.02) rotate(1deg);
+  }
+}
+
+.animate-wing {
+  animation: wing 3s ease-in-out infinite;
+  transform-origin: center;
+}
