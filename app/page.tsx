@@ -1,14 +1,16 @@
-import { CheckCircle, Clock, Send, Zap, Mail, ArrowRight } from "lucide-react"
+import { CheckCircle, Clock, Send, Zap, Mail, ArrowRight, Info } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import WaitlistForm from "@/components/waitlist-form"
 import CoreValues from "@/components/core-values"
 import VideoPlayer from "@/components/video-player"
 import AnimatedPigeon from "@/components/animated-pigeon"
+import StructuredData from "@/components/structured-data"
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-slate-950 text-slate-50">
+      <StructuredData />
       <header className="px-4 lg:px-6 h-16 flex items-center border-b border-slate-800">
         <Link className="flex items-center justify-center" href="/">
           <Image
@@ -39,29 +41,41 @@ export default function Home() {
         </nav>
       </header>
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 overflow-hidden relative">
+        <section
+          className="w-full py-12 md:py-24 lg:py-32 xl:py-40 overflow-hidden relative"
+          aria-labelledby="hero-heading"
+        >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(74,128,226,0.1),transparent_60%)]"></div>
           <div className="container px-4 md:px-6 relative">
             <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:gap-12">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="inline-flex items-center space-x-2 rounded-full bg-slate-800 px-3 py-1 text-sm text-sky-400 mb-4 w-fit">
+              <div className="flex flex-col justify-center space-y-6 relative">
+                <div className="inline-flex items-center space-x-2 rounded-full bg-slate-800 px-3 py-1 text-sm text-sky-400 mb-2 w-fit">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
                   </span>
                   <span>Now in alpha testing</span>
                 </div>
-                <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+
+                <div className="relative">
+                  <h1
+                    id="hero-heading"
+                    className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none mb-4"
+                  >
                     Messages Delivered With Character
-                    <span className="block text-2xl sm:text-3xl text-sky-400 mt-2"> The world's first pigeon-powered messaging protocol</span>
+                    <span className="block text-xl sm:text-2xl text-sky-400 mt-3 font-normal">
+                      The world's first pigeon-powered messaging protocol
+                    </span>
                   </h1>
                   <AnimatedPigeon />
-                  <p className="text-slate-400 md:text-xl max-w-[600px]">
-                    Wing2Wing reimagines digital communication with delightful unpredictability. Choose your pigeon, send
-                    your message, and embrace the journey.
-                  </p>
-                  <ul className="space-y-2 mt-2">
+                </div>
+
+                <p className="text-slate-400 text-lg max-w-[600px]">
+                  Wing2Wing reimagines digital communication with delightful unpredictability. Choose your pigeon, send
+                  your message, and embrace the journey.
+                </p>
+
+                <ul className="space-y-2 mt-2">
                   <li className="flex items-center gap-2 text-slate-300">
                     <div className="flex h-6 w-6 items-center justify-center rounded-full bg-sky-900/20 text-sky-400">
                       <CheckCircle className="h-4 w-4" />
@@ -75,11 +89,12 @@ export default function Home() {
                     <span>Experience the charm of unpredictable message delivery</span>
                   </li>
                 </ul>
-                </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row pt-4">
+
+                <div className="flex flex-col gap-3 sm:flex-row pt-4">
                   <Link
                     className="inline-flex h-12 items-center justify-center rounded-md bg-sky-500 px-8 text-sm font-medium text-white shadow-lg shadow-sky-900/20 hover:shadow-sky-900/40 transition-all hover:bg-sky-600 hover:scale-105"
                     href="#waitlist"
+                    aria-label="Join our waitlist"
                   >
                     Join Waitlist
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -87,8 +102,10 @@ export default function Home() {
                   <Link
                     className="inline-flex h-12 items-center justify-center rounded-md border border-slate-700 bg-slate-800 px-8 text-sm font-medium shadow-sm transition-colors hover:bg-slate-700 hover:border-slate-600 hover:text-sky-400"
                     href="#how-it-works"
+                    aria-label="Learn how Wing2Wing Protocol works"
                   >
-                    Learn More
+                    <Info className="mr-2 h-4 w-4" />
+                    How It Works
                   </Link>
                 </div>
               </div>
