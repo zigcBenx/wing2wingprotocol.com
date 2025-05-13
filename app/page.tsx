@@ -63,7 +63,7 @@ export default function Home() {
                     className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none mb-4"
                   >
                     Messages Delivered With Character
-                    <span className="block text-xl sm:text-2xl text-sky-400 mt-3 font-normal">
+                    <span className="block text-2xl sm:text-3xl text-sky-400 mt-2">
                       The world's first pigeon-powered messaging protocol
                     </span>
                   </h1>
